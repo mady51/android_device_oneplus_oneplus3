@@ -28,6 +28,13 @@ DEVICE_PACKAGE_OVERLAYS += \
     $(LOCAL_PATH)/overlay \
     $(LOCAL_PATH)/overlay-lineage
 
+# Prebuilt apps
+PRODUCT_PACKAGES += \
+   GoogleCamera \
+   OnePlusCamera \
+   OnePlusCameraService \
+   OnePlusGallery \	
+	
 # Permissions
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.audio.low_latency.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.audio.low_latency.xml \
