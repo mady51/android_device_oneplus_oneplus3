@@ -94,6 +94,9 @@ on enable-low-power
     write /dev/cpuset/background/cpus 0
     write /dev/cpuset/system-background/cpus 0-2
 	
+	# Set readahead
+	write /sys/block/sda/queue/read_ahead_kb 1024
+	
 	#Configure input boost params
 	write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800 2:1036800"
 	write /sys/module/cpu_boost/parameters/input_boost_ms 50
@@ -101,7 +104,7 @@ on enable-low-power
 	
 	#Update the cpu profiles to default interactive
 	write   /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "interactive"
-	write   /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 20000
+	write   /sys/devices/system/cpu/cpu0/cpufreq/interactive/above_hispeed_delay 19000 960000:40000 1228800:40000 1478400:40000
 	write   /sys/devices/system/cpu/cpu0/cpufreq/interactive/go_hispeed_load 90
 	write   /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_rate  20000
 	write   /sys/devices/system/cpu/cpu0/cpufreq/interactive/hispeed_freq 960000
@@ -112,7 +115,7 @@ on enable-low-power
 	write   /sys/devices/system/cpu/cpu0/cpufreq/interactive/timer_slack 20000
 
 
-# Configure governor settings for big cluster
+	# Configure governor settings for big cluster	
 	write   /sys/devices/system/cpu/cpu2/cpufreq/scaling_governor "interactive"
 	write   /sys/devices/system/cpu/cpu2/cpufreq/interactive/above_hispeed_delay  "20000 1200000:40000 1400000:20000 1900000:80000"
 	write   /sys/devices/system/cpu/cpu2/cpufreq/interactive/go_hispeed_load 90
