@@ -227,3 +227,42 @@ ro.qualcomm.display.paneltype=1
 ro.qualcomm.foss=1
 config.foss.xml=1
 config.foss.path=/vendor/etc/FOSSConfig.xml
+
+# Google DNS  
+net.rmnet0.dns1=8.8.8.8  
+net.rmnet0.dns2=8.8.4.4  
+net.dns1=8.8.8.8  
+net.dns2=8.8.4.4  
+  
+# Increase camera's photo and video recording quality  
+ro.media.dec.aud.wma.enabled=1  
+ro.media.enc.jpeg.quality=100  
+ro.media.dec.vid.wmv.enabled=1  
+  
+# System Tweaks  
+ro.ril.enable.amr.wideband=1  
+ro.config.hw_quickpoweron=true 
+
+# OOS props
+persist.radio.data_con_rprt 
+persist.radio.rat_on=combine 
+persist.radio.ignore_dom_time=10 
+ 
+#for ecc call 
+persist.radio.enhance_ecall=true 
+
+# Google WFD settings 
+persist.debug.wfd.enable=1 
+persist.sys.wfd.virtual=0 
+ 
+# WFD WL solution 
+ro.vendor.wl_library=libqti-wl.so 
+ 
+#Increase cached app limit 
+ro.vendor.qti.sys.fw.bg_apps_limit=32 
+ 
+# Enable device orientation sensor 
+ro.qti.sensors.dev_ori=false 
+ro.qti.sensors.pmd=false 
+ro.qti.sensors.sta_detect=false 
+ro.qti.sensors.mot_detect=false
