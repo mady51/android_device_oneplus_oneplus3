@@ -139,19 +139,14 @@ on enable-low-power
     write /sys/block/sda/queue/read_ahead_kb 1024
     write /sys/block/sde/queue/read_ahead_kb 1024
 	
-	#Configure input boost params
-	write /sys/module/cpu_boost/parameters/input_boost_freq "0:1036800 2:1036800"
-	write /sys/module/cpu_boost/parameters/input_boost_ms 30
-	write /sys/module/msm_performance/parameters/touchboost 1
-
     # Set perfd properties
     setprop sys.post_boot.parsed 1
 
     setprop sys.io.scheduler "maple"
 
     # Input boost configuration
-    write /sys/module/cpu_boost/parameters/input_boost_freq 0:1036800 2:1036800
-    write /sys/module/cpu_boost/parameters/input_boost_ms 30
+    write /sys/module/cpu_boost/parameters/input_boost_freq 0:1228800 2:1324800
+    write /sys/module/cpu_boost/parameters/input_boost_ms 60
     write /sys/module/msm_performance/parameters/touchboost 1
 
     # update cpusets now that boot is complete and we want better load balancing
@@ -174,7 +169,7 @@ on charger
     write /sys/devices/system/cpu/cpu2/online 0
     write /sys/devices/system/cpu/cpu3/online 0
     write /sys/module/msm_thermal/core_control/cpus_offlined 14
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "powersave"
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor "smartmax_eps"
     wait /dev/block/platform/soc/${ro.boot.bootdevice}
     # Enable UFS powersaving
     write /sys/devices/soc/${ro.boot.bootdevice}/clkscale_enable 1
